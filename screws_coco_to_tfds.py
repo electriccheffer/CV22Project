@@ -231,10 +231,10 @@ class MVTEC_SCREWS(tfds.core.GeneratorBasedBuilder):
         # pylint: disable=cell-var-from-loop
         # build_bbox is only used within the loop so it is ok to use image_info
         return tfds.features.BBox(
-            ymin=(y - y*.5)/ image_info['height'],
-            xmin=(x - x*.5)/ image_info['width'],
-            ymax=((y - y*.5) + height) / image_info['height'],
-            xmax=((x - x*.5) + width) / image_info['width'],
+            ymin= (y-width/2) / image_info['width'],
+            xmin= (x-height/2) / image_info['height'],
+            ymax= (y+width/2)/ image_info['width'],
+            xmax= (x+height/2)/ image_info['height'],
             #ymin=y,
             #xmin=x,
             #ymax=y+height,
